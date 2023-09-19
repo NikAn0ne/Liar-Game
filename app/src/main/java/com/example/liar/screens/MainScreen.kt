@@ -29,7 +29,8 @@ import com.example.liar.R
 @Composable
 fun MainScreen() {
     val activity = (LocalContext.current as? Activity)
-    Column(modifier = Modifier.fillMaxSize()
+    Column(modifier = Modifier
+        .fillMaxSize()
         .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -53,7 +54,10 @@ fun MainScreen() {
             Text(text ="Play",
                 fontSize = 40.sp)
         }
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = {
+
+
+                         },
             modifier = Modifier.size(width = 260.dp, height = 70.dp)) {
             Text(text = "How to play",
                 fontSize = 40.sp)
@@ -72,5 +76,6 @@ fun MainScreen() {
 
     }
     }
+
 
 }

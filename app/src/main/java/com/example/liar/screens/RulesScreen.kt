@@ -38,8 +38,11 @@ fun RulesScreen(){
                 fontSize = 40.sp)
         }
         Column(modifier = Modifier.fillMaxHeight()) {
-            Card {
-                Text(text = "sdfsfsdf")
+            Card(modifier = Modifier.fillMaxSize()
+                .padding(32.dp)) {
+                Text(text = "The rules are simple.\n Each team first selects the player to answer (IMPORTANT players should not be repeated in the round).  Then all players choose the theme for the competition. After selecting a theme, there is a discussion between the selected players as to how many words they can name on the topic. Players can at any moment say \"Liar\" and then on whom the score stopped should call such a number of words and was the bet(For example: Player 1 said he could say 13 words on the subject, Player 2 could say 15, Player 1 did not believe him and said \"Liar\", Player 2 should say 15 words on the topic or he lost).",
+                    modifier = Modifier.padding(20.dp),
+                    fontSize = 16.sp)
             }
 
         }
