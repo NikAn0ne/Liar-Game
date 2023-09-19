@@ -22,12 +22,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.liar.R
+import com.example.liar.navigation.Screen
 
 
 @Preview()
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController) {
     val activity = (LocalContext.current as? Activity)
     Column(modifier = Modifier
         .fillMaxSize()
@@ -55,8 +57,7 @@ fun MainScreen() {
                 fontSize = 40.sp)
         }
         Button(onClick = {
-
-
+                            navController.navigate(route = Screen.Rules.route)
                          },
             modifier = Modifier.size(width = 260.dp, height = 70.dp)) {
             Text(text = "How to play",
