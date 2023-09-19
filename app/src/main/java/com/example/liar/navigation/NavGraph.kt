@@ -5,6 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.liar.screens.GameScreen
 import com.example.liar.screens.MainScreen
 import com.example.liar.screens.RulesScreen
 
@@ -23,6 +24,11 @@ fun SetupNavGraph(navController: NavHostController) {
             route = Screen.Rules.route
         ) {
             RulesScreen(navController)
+        }
+        composable(
+            route = Screen.Game.route
+        ) {
+            GameScreen(navController)
         }
     }
 }

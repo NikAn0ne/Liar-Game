@@ -51,7 +51,9 @@ fun MainScreen(navController: NavHostController) {
         verticalArrangement = Arrangement.SpaceEvenly) {
 
         Spacer(modifier = Modifier.size(40.dp))
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = {
+                         navController.navigate(route = Screen.Game.route)
+                         },
             modifier = Modifier.size(width = 260.dp, height = 70.dp)) {
             Text(text ="Play",
                 fontSize = 40.sp)
