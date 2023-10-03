@@ -6,7 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -24,6 +27,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PointMode
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.onSizeChanged
@@ -35,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.google.firebase.inappmessaging.model.Button
 import kotlinx.coroutines.delay
 import java.lang.Math.PI
 import java.lang.Math.cos
@@ -45,12 +50,13 @@ import kotlin.math.sin
 
 @Preview
 @Composable
-fun GameScreen(navController: NavHostController){
+fun GameScreen(counter: Int?,team: String?,navController: NavHostController){
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color(0xFF101010)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
+        
         Box(contentAlignment = Alignment.Center){
             Timer(
                 totalTime = 60L * 1000L,
@@ -60,8 +66,29 @@ fun GameScreen(navController: NavHostController){
                 modifier = Modifier.size(200.dp)
             )
         }
+        Column(horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center){
+            var count by remember {
+                mutableStateOf(counter)
+            }
+            if (team != null) {
+                Text(text = team, fontSize = 48.sp, color = Color.Cyan)
+            }
+            
+            Button(colors = ButtonDefaults.buttonColors(Color.DarkGray),
+                modifier = Modifier
+                    .size(height = 200.dp, width = 150.dp),
+                shape = RectangleShape
+                ,onClick = { count = count!! - 1
+                if (count!! < 0) count = 0}) {
+                Text(text = "$count", fontSize = 36.sp, color = Color.Cyan)
+
+            }
+
+        }
     }
 }
+
 
 @Composable
 fun Timer(

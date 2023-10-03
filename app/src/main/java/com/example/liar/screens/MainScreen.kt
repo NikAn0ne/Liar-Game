@@ -52,7 +52,7 @@ fun MainScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.size(40.dp))
         Button(onClick = {
-                         navController.navigate(route = Screen.Game.route)
+                         navController.navigate(route = Screen.Choose.route)
                          },
             modifier = Modifier.size(width = 260.dp, height = 70.dp)) {
             Text(text ="Play",
